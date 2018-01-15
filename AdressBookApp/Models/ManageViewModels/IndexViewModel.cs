@@ -21,5 +21,7 @@ namespace AdressBookApp.Models.ManageViewModels
         public string PhoneNumber { get; set; }
 
         public string StatusMessage { get; set; }
+
+        public string CityOfBirth { get; set; }
     }
 }
