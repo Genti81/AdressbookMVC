@@ -7,16 +7,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AdressBookApp.Data;
 using AdressBookApp.Models;
+using Microsoft.Extensions.Localization;
 
 namespace AdressBookApp.Controllers
 {
+    [Route("api/[controller]")]
     public class AddressesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<AddressesController> _localizer;
 
-        public AddressesController(ApplicationDbContext context)
+        public AddressesController(ApplicationDbContext context, IStringLocalizer<AddressesController> localizer)
         {
             _context = context;
+            _localizer = localizer;
+        }
+        
+        [HttpGet]
+        public string Get()
+        {
+            return _localizer["About Title"];
         }
 
         // GET: Addresses

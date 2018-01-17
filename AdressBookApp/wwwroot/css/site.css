@@ -21,12 +21,11 @@
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
+/* .carousel-inner .item img[src$=".svg"] {
+   width: 100%;
+}*/
+    /* QR code generator */
+    #qrCode {
     margin: 15px;
 }
 
@@ -42,7 +41,7 @@
 .myTime {
     text-align: center;
     font-size: 14px;
-    border: 5px groove darkblue;
+    border: 2px groove darkblue;
     border-radius: 10px;
     margin-top: 10px;
     background-color:antiquewhite;
@@ -62,12 +61,11 @@
 
 .navbar-inverse .navbar-nav > li > a {
     color: white;
-    border: dashed;
 }
 
-.navbar-inverse .navbar-nav > li > a.myTimebox {
+.navbar-inverse .navbar-nav > li > a .myTimebox {
     color: blue;
-    border: dashed;
+
 }
 
 .navbar-inverse .navbar-brand {
@@ -94,7 +92,7 @@
 }
 
 .myCarousel {
-    border: ridge;
+    border: groove;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
     background-image: url('../images/recycled_texture.jpg');
@@ -110,5 +108,10 @@ a {
 }
 
 #myFooter{
-    border:2px;
+    border:7px;
+    border-color: red;
+}
+.myCulture{
+    border:3px ridge;
+    background-color:chocolate
 }

@@ -16,9 +16,10 @@ namespace AdressBookApp.Controllers
         private readonly ApplicationDbContext _context;
         private readonly ILogger<PeopleController> _logger;
 
-        public PeopleController(ApplicationDbContext context)
+        public PeopleController(ApplicationDbContext context, ILogger<PeopleController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: People

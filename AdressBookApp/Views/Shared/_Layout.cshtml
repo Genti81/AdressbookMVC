@@ -1,5 +1,10 @@
 ﻿@inject AdressBookApp.Interface.ITimeProvider myTimeProvider
 
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@using AdressBookApp.Resources
+@*@inject IHtmlLocalizer<SharedResources> sharedLocalizer*@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +53,7 @@
             </div>
         </div>
     </nav>
+    @*<div class="container body-content">*@
     <div class="myTime col-md-1 col-lg-1 col-sm-1 col-xs-1">
         <div id="todayTime">
             <span></span></>
@@ -55,6 +61,11 @@
         <div id="nameOfWeek">
             <span></span>
         </div>
+    </div>
+    <div class="myCulture col-lg-1 col-md-1 pull-right" style="margin-top:5px;">
+        <a href="/?culture=sq-AL" style="margin-right:16px;">Albanska</a>
+        <a href="/?culture=en-US">English</a>
+        <div style="padding:3px"><h2 style="font-size: 14px">@*@sharedLocalizer["Welcome"]*@</h2></div>
 
     </div>
     <div class="container body-content">
@@ -64,7 +75,6 @@
             <p>&copy; @DateTime.Now.Year - AdressBook made by Gentrit</p>
         </footer>
     </div>
-
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

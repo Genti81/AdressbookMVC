@@ -5,16 +5,21 @@ using AdressBookApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using AdressBookApp.Services;
 using AdressBookApp.Interface;
+using Microsoft.Extensions.Localization;
+using AdressBookApp.Resources;
 
 namespace AdressBookApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IStringLocalizerFactory _factory;
+        private readonly IStringLocalizer _localizer;
         private ITimeProvider timeProvider;
-
         private IEmailSender emailSender;
-        public HomeController(IEmailSender _emailSender, ITimeProvider _timeProvider)
+        public HomeController(IEmailSender _emailSender, ITimeProvider _timeProvider, IStringLocalizerFactory factory)
         {
+            _factory = factory;
+            _localizer = factory.Create(typeof(SharedResources));
             timeProvider = _timeProvider;
             emailSender = _emailSender;
         }
@@ -39,7 +44,8 @@ namespace AdressBookApp.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            //var currentThread = System.Threading.Thread.CurrentThread;
+            ViewData["Message"] = _localizer["About"];
 
             return View();
         }
